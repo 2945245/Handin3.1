@@ -1,0 +1,93 @@
+﻿@page "/AdultsData"
+<h3>AdultsData</h3>
+<p>
+    Filter by age: <input type="number" @oninput="@((arg) => FilterByAge(arg))" style="width:50px"/>
+</p>
+
+@if (allAdults == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if(!allAdults.Any()){
+
+    <p>
+        <em>There are no adults registered.</em>
+    </p>
+
+}
+else
+{
+    <table class="generic-table table-bordered">
+        <thead>
+        <tr>
+            <th>Adult Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Job Title</th>
+            <th>Job Salary</th>
+            <th>Hair Color</th>
+            <th>Eye Color</th>
+            <th>Age</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Gender</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var adult in adultsToShow)
+        {
+            <tr>
+
+                <td>@adult.Id</td>
+                <td>@adult.FirstName</td>
+                <td>@adult.LastName</td>
+                <td>@adult.JobTitle.JobTitle</td>
+                <td>@adult.JobTitle.Salary</td>
+                <td>@adult.HairColor</td>
+                <td>@adult.EyeColor</td>
+                <td>@adult.Age</td>
+                <td>@adult.Height</td>
+                <td>@adult.Sex</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+@code {
+    private IList<Adult> allAdults;
+    private IList<Adult> adultsToShow;
+    int? filterByAge = null;
+
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        allAdults = await AdultData.GetAllAdultsAsync();
+        adultsToShow = allAdults;
+    }
+
+    private void FilterByAge(ChangeEventArgs changeEventArgs)
+    {
+        filterByAge = null;
+        try
+        {
+            filterByAge = int.Parse(changeEventArgs.Value.ToString());
+        }
+        catch (Exception e)
+        {
+
+        }
+        ExecuteFilter();
+
+
+    }
+
+    private void ExecuteFilter()
+    {
+        adultsToShow = allAdults.Where(a => (filterByAge != null && a.Age == filterByAge || filterByAge == null)).ToList();
+    }
+
+}
+}

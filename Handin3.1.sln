@@ -1,6 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handin3.1", "Handin3.1\Handin3.1.csproj", "{757B701A-D384-49A5-AF20-69F54862AE0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handin2.1", "Handin2.1\Handin2.1.csproj", "{757B701A-D384-49A5-AF20-69F54862AE0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Handin1", "Handin1", "{F5C35A3E-01E6-4B48-9F7D-AEEB7FD6C9FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerApp", "ServerApp\ServerApp.csproj", "{71673DD3-E1BF-4B80-A639-FE479D67209B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Handin2", "Handin2", "{B0F180F9-7853-4B89-AC08-526AE7336E2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +18,13 @@ Global
 		{757B701A-D384-49A5-AF20-69F54862AE0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{757B701A-D384-49A5-AF20-69F54862AE0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{757B701A-D384-49A5-AF20-69F54862AE0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71673DD3-E1BF-4B80-A639-FE479D67209B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71673DD3-E1BF-4B80-A639-FE479D67209B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71673DD3-E1BF-4B80-A639-FE479D67209B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71673DD3-E1BF-4B80-A639-FE479D67209B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{71673DD3-E1BF-4B80-A639-FE479D67209B} = {F5C35A3E-01E6-4B48-9F7D-AEEB7FD6C9FD}
+		{757B701A-D384-49A5-AF20-69F54862AE0C} = {B0F180F9-7853-4B89-AC08-526AE7336E2B}
 	EndGlobalSection
 EndGlobal
