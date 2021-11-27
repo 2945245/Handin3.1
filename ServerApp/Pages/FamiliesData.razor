@@ -1,6 +1,86 @@
 ﻿@page "/FamiliesData"
+@using ServerApp.Model
 <h3>FamiliesData</h3>
+@if (allFamilies == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if(!allFamilies.Any()){
+
+    <p>
+        <em>There are no adults registered.</em>
+    </p>
+
+}
+else
+{
+    <table class="table-responsive-md table myTable">
+        <thead>
+        <tr>
+            <th>Address</th>
+            <th>Adults</th>
+            <th>Children</th>
+            <th>Pets</th>
+         
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var family in allFamilies)
+        {
+            <tr>
+               
+            <td>@family.StreetName @family.HouseNumber</td>
+           
+                <td> @foreach (var adult in @family.Adults)
+                     {
+                         @adult.FirstName; <br/>
+                     }
+                    
+                </td>
+                
+                <td>@if (@family.Children != null)
+                    {
+                        @foreach (var children in @family.Children)
+                        {
+                            @if (children != null)
+                            {
+                                @children.FirstName; <br/>
+
+                            }
+                        }
+                                        
+                     
+                        
+                    } 
+                   </td> 
+                <td>
+                    @if (@family.Pets != null)
+                    {
+                        @foreach (var pet in @family.Pets)
+                        {
+                            @pet.Name;
+                            <br/>
+                        }
+                        
+                    }
+                
+                </td>
+          
+            </tr>
+        }
+        </tbody>
+    </table>
+}
 
 @code {
+    private IList<FamilyObject> allFamilies;
     
+    protected override async Task OnInitializedAsync()
+    {
+        allFamilies = await FamiliesData.GetAllFamiliesAsync();
+    }
+
+
 }
