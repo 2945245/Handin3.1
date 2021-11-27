@@ -1,4 +1,6 @@
-﻿namespace ServerApp.Authentication
+﻿using ServerApp.Model;
+
+namespace ServerApp.Authentication
 {
     public interface IUserService
     {

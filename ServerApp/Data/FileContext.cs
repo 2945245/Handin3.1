@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using ServerApp.Model;
 
 namespace ServerApp.Data
 {
     public class FileContext
     {
-        public IList<FamilyObject> Families { get;  private set; }
+        public IList<FamilyObject> Families { get; private set; }
         public IList<Adult> Adults { get; private set; }
 
         private readonly string familiesFile = "families.json";
@@ -39,5 +40,6 @@ namespace ServerApp.Data
                 outputFile.Write(jsonFamilies);
             }
 
+        }
     }
 }

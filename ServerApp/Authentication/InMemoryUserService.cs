@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using ServerApp.Model;
 
 namespace ServerApp.Authentication
 {
-    public class InMemoryUserService :IUserService
+    public class InMemoryUserService: IUserService
     {
         private IList<User> users;
         private RegisteredUsers rUsers;
 
-        public InMEmoryUserService()
+        public InMemoryUserService()
         {
             if (rUsers == null)
             {

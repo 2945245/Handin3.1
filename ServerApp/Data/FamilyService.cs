@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using ServerApp.Model;
 
 namespace ServerApp.Data
 {
@@ -31,6 +32,13 @@ namespace ServerApp.Data
             }));
             return result;
         }
+
+        Task IFamiliesData.GetAllFamiliesAsync()
+        {
+            return GetAllFamiliesAsync();
+        }
+
+       
 
         public async Task<IList<FamilyObject>> GetAllFamiliesAsync()
         {

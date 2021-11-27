@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
+using ServerApp.Model;
 
 namespace ServerApp.Data
 {

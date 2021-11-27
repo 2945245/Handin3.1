@@ -1,6 +1,36 @@
 ﻿@page "/NewUser"
-<h3>NewUser</h3>
+@using Microsoft.AspNetCore.Components
+@using ServerApp.Model
+<h3>Signup</h3>
+<EditForm Model="@newUser" OnValidSubmit="@AddNewUser">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    <div class="form-group">User Name<br>
+        <InputText @bind-Value="newUser.UserName"></InputText>
+    </div>
+    <div class="form-group"> First Name <br>
+            <InputText @bind-Value="newUser.FirstName"></InputText>
+        </div>
+        <div class="form-group"> Last Name <br>
+            <InputText @bind-Value="newUser.LastName"></InputText>
+        </div>
+        <div class="form-group"> Age <br>
+            <input type="number" @bind-value="newUser.Age"/>
+            </div>
+        
+        <div class="form-group"> Password <br>
+            <InputText @bind-Value="newUser.Password"></InputText>
+        </div>
+        
+        <button class="btn btn-outline-dark" type="submit">OK</button>
+    </EditForm>
 
 @code {
-    
+    private User newUser = new User();
+
+    private void AddNewUser()
+    {
+        UserService.NewUser(newUser);
+    }
+
 }

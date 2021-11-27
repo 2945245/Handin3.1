@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
+using ServerApp.Model;
 
 namespace ServerApp.Authentication
 {
@@ -14,7 +15,7 @@ namespace ServerApp.Authentication
         private readonly IUserService userService;
         private User cachedUser;
 
-        public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, IUserService userService)
+        public CustomAuthenticationProvider(IJSRuntime jsRuntime, IUserService userService)
         {
             this.jsRuntime = jsRuntime;
             this.userService = userService;
